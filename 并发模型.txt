@@ -1,0 +1,24 @@
+## python thread
+
+```python
+class Watcher:
+    def __init__(self):
+        self.child = os.fork()
+        print 'child', self.child
+        if self.child == 0:
+            return
+        self.watch()
+
+    def watch(self):
+        try:
+            os.wait()
+        except KeyboardInterrupt as why:
+            self.kill()
+        sys.exit()
+
+    def kill(self):
+        try:
+            os.kill(self.child, signal.SIGKILL)
+        except OSError as why:
+            print why
+```
