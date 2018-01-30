@@ -58,3 +58,5 @@
 - accept会被信号打断
 - `unix:/tmp/test.sock` 其实是一个path`/tmp/test.sock`,`socket.bind(path)`
 - unix socket 需要手动删除`os.unlink(path)` [UNIX(7)](http://man7.org/linux/man-pages/man7/unix.7.html)
+
+### Thread有点鸡肋，看任务是选择thread or process还是使用任务队列
