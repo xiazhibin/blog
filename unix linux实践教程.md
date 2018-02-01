@@ -34,6 +34,9 @@
 - get input -> get command -> exe command -> waitfor command to finish
 - fork 子进程，子进程exec，父进程等待子进程退出
 
+### 僵尸进程
+- 子进程先于父进程退出，父进程可能会
+
 ### execvp(progname,arglist)
 - 会替换原来的进程.把当前进程中的机器指令清除，然后在这个进程中载入调用时指定的程序代码
 
@@ -60,3 +63,8 @@
 - unix socket 需要手动删除`os.unlink(path)` [UNIX(7)](http://man7.org/linux/man-pages/man7/unix.7.html)
 
 ### Thread有点鸡肋，看任务是选择thread or process还是使用任务队列
+
+### IPC(进程通信)
+- 文件
+- named pipe
+- share memory
