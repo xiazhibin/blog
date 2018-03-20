@@ -69,5 +69,9 @@ else print > "3.txt" }' netstat.txt`
 ### 统计
 - `awk 'NR!=1{a[$6]++;} END {for (i in a) print i ", " a[i];}' netstat.txt`
 
+### 配合使用
+- `sort` [Linux sort命令](http://www.runoob.com/linux/linux-comm-sort.html)
+- `uniq -c` [uniq命令](http://www.runoob.com/linux/linux-comm-uniq.html)
+
 ### 学习网站
 - [AWK程序设计语言](http://awk.readthedocs.io/en/latest/chapter-one.html)
