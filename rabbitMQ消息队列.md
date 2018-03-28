@@ -3,8 +3,7 @@
 - exchange:接受生产者的消息并把它转到合适的队列
 - queue:存储Exchange发来的消息，并将消息主动发送给Consumer或者 Consumer 主动来获取消息 
 - binding:确定exchange和queue之间的关系
-- channel和connection:生产者和消费者需要和 RabbitMQ 建立 TCP 连接。一些应用需要多个connection，为了节省TCP 连接，可以使用 Channel，它可以被认为是一种轻型的共享 TCP 连接的连接。
-连接需要显式关闭。
+- channel和connection:生产者和消费者需要和 RabbitMQ 建立 TCP 连接。一些应用需要多个connection，为了节省TCP 连接，可以使用 Channel，它可以被认为是一种轻型的共享 TCP 连接的连接。连接需要显式关闭。
 
 ![概念](https://github.com/xiazhibin/blog/blob/master/pic/mq2.jpg)
 ![架构图](https://github.com/xiazhibin/blog/blob/master/pic/messagequeue.jpg)
@@ -73,4 +72,9 @@ finally:
 `ACK`告诉broker这条信息成功投递了并且正确处理了。del这条message.如果没有收到`ACK`，那么这个message就会类似
 挂起来（不会被其他`consumer`处理），直到当前这个`consumer`断开连接
  
+ - 当处理消息遇到不可恢复的错误是
+   - 把当前消费者从RabbitMQ服务器断开连接。这会导致RabbitMQ自动重新把消息入队并发送到另外一个消费者。（频繁断开可能对RabbitMQ造成负荷）
+   - 可以使用`basic.reject`，当`requeue`为`true`的时候才重新放入队列投递给下一个消费者，否则就移除出队列
    
+ ### vhost
+ vhost类似于namespace
