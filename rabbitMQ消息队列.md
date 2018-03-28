@@ -84,3 +84,7 @@ finally:
  - 发送到持久化的exchange
  - 到达持久化的queue
 持久化会影响消息的吞吐量
+
+### 消息分发机制
+- Round-robin dispatching 循环分发:RabbitMQ将第n个Message分发给第n个Consumer
+- Fair dispatch 公平分发：`prefetch=1`这样RabbitMQ就会使得每个Consumer在同一个时间点最多处理一个Message。换句话说，在接收到该Consumer的ack前，他它不会将新的Message分发给它
