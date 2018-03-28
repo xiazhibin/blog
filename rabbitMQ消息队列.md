@@ -12,7 +12,7 @@
 ```python
 import pika
 
-params = pika.URLParameters('amqp://username:password@host')
+params = pika.URLParameters('amqp://username:password@host/')
 params.socket_timeout = 5
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
@@ -27,7 +27,7 @@ connection.close()
 ```python
 import pika
 
-params = pika.URLParameters('amqp://username:password@host')
+params = pika.URLParameters('amqp://username:password@host/')
 connection = pika.BlockingConnection(params)
 channel = connection.channel()  # start a channel
 channel.queue_declare(queue='hello')  # Declare a queue
@@ -77,4 +77,10 @@ finally:
    - 可以使用`basic.reject`，当`requeue`为`true`的时候才重新放入队列投递给下一个消费者，否则就移除出队列
    
  ### vhost
- vhost类似于namespace
+ vhost（虚拟消息服务器）类似于namespace，目的是为了将exchange和queue隔离，一个RabbitMQ可以服务更多的应用，而不需要担心exchange重名了。
+ 
+ ### 消息持久化
+ - 投递模式选项设置为2
+ - 发送到持久化的exchange
+ - 到达持久化的queue
+持久化会影响消息的吞吐量
