@@ -1,1 +1,2 @@
  - [unix linux编程实践教程](https://book.douban.com/subject/1219329/)
+ - [rabbitMQ实践](https://book.douban.com/subject/26649178/)
