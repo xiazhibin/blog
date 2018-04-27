@@ -7,22 +7,23 @@
 
 ### 闭包问题
 ```go
-	list := []Foo{
-		{"A"},
-		{"B"},
-	}
-	list2 := make([]*Foo, len(list))
-  //错误做法
-  for index, value := range list {
-		list2[index] = &value
-	}
-  //正确做法
-	//for index, value := range list {
-	//	m := value
-	//	list2[index] = &m
-	//}
-	fmt.Println(list[0], list[1])
-	fmt.Println(list2[0], list2[1])
+list := []Foo{
+    {"A"},
+    {"B"},
+}
+
+list2 := make([]*Foo, len(list))
+//错误做法
+for index, value := range list {
+  list2[index] = &value
+}
+//正确做法
+//for index, value := range list {
+//	m := value
+//	list2[index] = &m
+//}
+fmt.Println(list[0], list[1])
+fmt.Println(list2[0], list2[1])
 ```
 
 #### 第一步，看定义
@@ -54,18 +55,18 @@ range 表达式会在开始循环前被 evaluated 一次。但有一个例外情
 
 #### range只是语法糖
 ```go
-	for index, value := range list {
-		m := value
-		list2[index] = &m
-	}
+for index, value := range list {
+    m := value
+    list2[index] = &m
+}
 // 会转换成
-   len_temp := len(list)
-   range_temp := list
-   for index_temp = 0; index_temp < len_temp; index_temp++ {
-           value_temp = range_temp[index_temp]
-           index = index_temp
-           value = value_temp
-           original body
-  }
+len_temp := len(list)
+range_temp := list
+for index_temp = 0; index_temp < len_temp; index_temp++ {
+    value_temp = range_temp[index_temp]
+    index = index_temp
+    value = value_temp
+    original body
+}
 ```
 [Go-Range-内部实现](http://newt0n.github.io/2017/04/06/Go-Range-%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0/)
