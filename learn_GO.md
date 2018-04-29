@@ -70,3 +70,5 @@ for index_temp = 0; index_temp < len_temp; index_temp++ {
 }
 ```
 [Go-Range-内部实现](http://newt0n.github.io/2017/04/06/Go-Range-%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0/)
+
+#### defer关键字
