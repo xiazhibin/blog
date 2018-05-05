@@ -89,3 +89,18 @@ func (p Point) Distance(q Point) float64 {
 ```
 上面的代码里那个附加的参数p,叫做方法的接收器(receiver),早期的面向对象语言留下的遗产将调用 一个方法称为“向一个对象发送消息”。
 在Go语言中,我们并不会像其它语言那样用this或者self作为接收器;我们可以任意的选择接收器的名 字。由于接收器的名字经常会被使用到,所以保持其在方法间传递时的一致性和简短性是不错的主意。 这里的建议是可以使用其类型的第一个字母,比如这里使用了Point的首字母p。
+
+#### channel
+- `var c chan T` 双向channel
+- `var c <-chan T` 只读channel
+- `var c chan<- T` 只写channel
+
+##### 坑点
+- 这样会deadlock,因为`range`不断等待`c`的输入，但是外部又没有其他驱动，所以会deadlock,要`close(c)`
+```go 
+var c <-chan String
+for f := range c{
+    fmt.Println(f)
+}
+```
+
