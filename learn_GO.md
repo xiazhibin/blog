@@ -96,6 +96,7 @@ func (p Point) Distance(q Point) float64 {
 - `var c <-chan T` 只读channel
 - `var c chan<- T` 只写channel
 
+
 #### 坑点
 - 这样会deadlock,因为`range`不断等待`c`的输入，但是外部又没有其他驱动，所以会deadlock,要`close(c)`
 ```go 
