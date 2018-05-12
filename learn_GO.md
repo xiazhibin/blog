@@ -105,6 +105,21 @@ for f := range c{
     fmt.Println(f)
 }
 ```
+- goroutine泄漏：如果一个goroutine一直处于等待send或者receive状态并且caller已经丢失该goroutine的引用，这个goroutine就不会被GC回收
+```go
+func test() chan<- int{
+    ch := macke(chan int)
+    go func{
+    <-ch
+    }()
+    return ch
+}
+
+test()//goroutine泄漏了
+//do sth
+```
+
+
 ## 并发问题
 ### 死锁
 ### 活锁
