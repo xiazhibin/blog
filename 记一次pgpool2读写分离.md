@@ -1,9 +1,9 @@
 ### 环境
-已经完成步骤：[postgresql9.6流复制](https://github.com/xiazhibin/blog/blob/master/20171019_01.md)
-OS: Ubuntu 14.04
-Postgresql: PostgreSQL 9.6.9 #SELECT version();
-主库：192.168.1.10
-从库：192.168.1.11
+- 已经完成步骤：[postgresql9.6流复制](https://github.com/xiazhibin/blog/blob/master/20171019_01.md)
+- OS: Ubuntu 14.04
+- Postgresql: PostgreSQL 9.6.9 #SELECT version();
+- 主库：192.168.1.10
+- 从库：192.168.1.11
 
 ### 主从库都安装`pgpool2`
 使用`sudo apt-get install pgpool2`方法安装
