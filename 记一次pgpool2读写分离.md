@@ -69,6 +69,17 @@ DEBUG:  pool_virtual_master_db_node_id: virtual_master_node_id:0 load_balance_no
 ```
 - 可以看到`select`是会去到slave，除非强制在master上执行。`select for update`就在master上执行
 
+### 使用pgbench测试load balance
+- 执行`pgbench -p 11000 -c 10 -S -T 10 testdb -h 127.0.0.1 -p 5434 -U postgres`
+- `show pool_nodes;`
+```
+node_id |   hostname   | port | status | lb_weight |  role   | select_cnt | load_balance_node | replication_delay
+---------+--------------+------+--------+-----------+---------+------------+-------------------+-------------------
+ 0       | 192.168.1.19 | 5432 | up     | 0.500000  | primary | 22890      | false             | 0
+ 1       | 192.168.1.12 | 5432 | up     | 0.500000  | standby | 7532       | true              | 0
+(2 rows)
+```
+
 ### 这里忽略了`pcp.conf`和`pool_passwd.conf`的配置
 
 ### 常见问题
