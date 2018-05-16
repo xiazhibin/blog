@@ -75,5 +75,5 @@ DEBUG:  pool_virtual_master_db_node_id: virtual_master_node_id:0 load_balance_no
 - 从库的status是`unused`或者`down`
 解决方法：先停止服务，然后删掉`pool_status`文件，文件位置在`pgpool.conf的logdir`
 
-- `psql: ERROR:  MD5 authentication is unsupported in replication, master-slave and parallel modes. `看到这个，好好检查`pg_hba.conf`，互相
-使用`psql`连接互相的数据库。
+- `psql: ERROR:  MD5 authentication is unsupported in replication, master-slave and parallel modes. `看到这个，好好检查`pg_hba.conf`，
+使用`psql`互相连接数据库，确保是可以互通的
