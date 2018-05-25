@@ -20,6 +20,7 @@
 - directory: 一些 `inode | name` pair的目录entry集合
 - 例如新建一个文件`a.txt`, `inode`编号为47，使用了33，657，992三个数据块。目录增加`47|a.txt`这样一对的目录entry
 - [理解inode](http://www.ruanyifeng.com/blog/2011/12/inode.html)
+- [inode](https://zh.wikipedia.org/wiki/Inode)
 - `目录包含子目录`意思是父目录有一个`inode`为`277|a` 其中`a`的里面存在以下`inode`:`277|.` `865|..`
 - 一个空的目录有两个link，一个是爸爸对儿子的引用，一个是儿子对自己的引用
 
