@@ -35,7 +35,9 @@ with client.pipeline() as pipe:
 
 - 注意事项
 
-pipeline命令不能有逻辑先后，即系写命令前需要读命令返回的结果，这个时候不能使用pipeline
+  - pipeline命令不能有逻辑先后，即系写命令前需要读命令返回的结果，这个时候不能使用pipeline
+  - 每次pipeline的执行命令是有上限的，超过这个值不会有太大的优化，因为pipeline中所有命令和执行结果会被缓存到Redis内存，同时也会造成网络通信变慢，得不偿失
+
 
 - 参考
 
