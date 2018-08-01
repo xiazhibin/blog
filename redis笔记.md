@@ -22,7 +22,6 @@ pipe.execute()
 
 ```python
 with client.pipeline() as pipe:
-    pipe.multi()
     pipe.set(1,2)
     pipe.set(2,3)
     pipe.execute()
