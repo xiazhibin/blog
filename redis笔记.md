@@ -29,14 +29,30 @@ with client.pipeline() as pipe:
 ```
 
 `pipeline`将`StrictRedis`的`execute_command`返回`pipeline_execute_command`,`pipeline_execute_command`中会将所有命令`append`到`command_stack`
-中，当`execute`的时候才一起执行。(PS:默认是transaction为true)
-
-意外发现的是，`transaction`其实也是通过这种方式实现，只是增加了一个`pipe.watch(key)`
+中，当`execute`的时候才一起执行。
 
 - 注意事项
 
   - pipeline命令不能有逻辑先后，即系写命令前需要读命令返回的结果，这个时候不能使用pipeline
   - 每次pipeline的执行命令是有上限的，超过这个值不会有太大的优化，因为pipeline中所有命令和执行结果会被缓存到Redis内存，同时也会造成网络通信变慢，得不偿失
+  - `python redis pipeline`当中命令也是可以被立即执行的,例如官方文档中:
+  
+  ```python
+  with r.pipeline() as pipe:
+      while 1:
+          try:
+              pipe.watch('key')
+              current_value = pipe.get('key') #这个命令会马上执行
+              next_value = int(current_value)+1
+              pipe.multi() #这下面开始的命令会缓存一起去执行
+              pipe.set('key',next_value)
+              pipe.execute()
+              break
+          except WatchError:
+              continue
+          finally:
+              pipe.reset()
+  ```
 
 
 - 参考
