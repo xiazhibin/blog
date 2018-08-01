@@ -52,10 +52,15 @@ with client.pipeline() as pipe:
           finally:
               pipe.reset()
   ```
-
+  
+  - `multi exec watch discard`是用来实现事务
 
 - 参考
 
 [pipelining](http://www.redis.cn/topics/pipelining.html)
 
 [pipelining](https://redis.io/topics/pipelining)
+
+[transaction](http://redisbook.readthedocs.io/en/latest/feature/transaction.html)
+
+[transaction](http://redisdoc.com/topic/transaction.html)
