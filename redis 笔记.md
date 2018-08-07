@@ -17,3 +17,6 @@ while cursor:
     for key in data:
         print client.object('idletime', key)
 ```
+
+### redis pipeline
+[pipeline](https://github.com/xiazhibin/blog/blob/master/redis%E7%AC%94%E8%AE%B0.md)
