@@ -3,3 +3,4 @@
  - [The Go Programming Language](http://www.gopl.io/)
  - [Redis开发与运维](https://book.douban.com/subject/26971561/)
  - [redis设计与实现](https://book.douban.com/subject/25900156/)
+ - [Docker in Action](https://book.douban.com/subject/26409789/)
