@@ -1,0 +1,24 @@
+-- --link outside_c_name:inside_name
+  `docker run --rm --expose 5000 --expose 3333/udp mysql`
+  `docker run --rm --link mysql:db app`
+  
+  那么就会在`container_b`里面设置一下环境变量，形式如
+  ```bash
+  <ALIAS>_PORT_<PORT NUMBER>_<PRO TOCOL TCP or UDP>_PORT
+  ```,
+  所以container `app`会有一下环境变量：
+ ```bash
+ DB_PORT=udp://172.17.0.2:333 #较小的端口
+ 
+ DB_PORT_5000_TCP=tcp://172.17.0.2:5000
+ DB_PORT_5000_TCP_PORT=50000
+ DB_PORT_5000_TCP_ADDR=172.17.0.2
+ DB_PORT_5000_TCP_PROTO=tcp
+ 
+ DB_PORT_3333_UDP=udp://172.17.0.2:3333
+ DB_PORT_3333_UDP_PORT=3333
+ DB_PORT_3333_UDP_ADDR=172.17.0.2
+ DB_PORT_3333_UDP_PROTO=udp
+ 
+ DB_NAME=/random_string/db
+ ```
