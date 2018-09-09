@@ -4,11 +4,16 @@
   
   那么就会在`container_b`里面设置一下环境变量，形式如
   ```bash
+  <ALIAS>_PORT_<PORT NUMBER>_<PRO TOCOL TCP or UDP>
   <ALIAS>_PORT_<PORT NUMBER>_<PRO TOCOL TCP or UDP>_PORT
-  ```,
+  <ALIAS>_PORT_<PORT NUMBER>_<PRO TOCOL TCP or UDP>_ADDR
+  <ALIAS>_PORT_<PORT NUMBER>_<PRO TOCOL TCP or UDP>_PROTO
+  ```
+  
   所以container `app`会有一下环境变量：
+  
  ```bash
- DB_PORT=udp://172.17.0.2:333 #较小的端口
+ DB_PORT=udp://172.17.0.2:333
  
  DB_PORT_5000_TCP=tcp://172.17.0.2:5000
  DB_PORT_5000_TCP_PORT=50000
