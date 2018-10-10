@@ -11,4 +11,5 @@ So if you plan to communicate with processes on the same host, this is a better 
 
  - UNIX socket是一种IPC机制，是基于本地的可靠的通信机制，基于本地文件系统（跟socketpair有点类似）
  - IP socket，是基于网络，需要经过网络协议栈，网卡什么的
- - socket API监听unix套接字，用文件代替TCP/IP socket。
+ - socket API监听unix套接字，用文件代替TCP/IP socket，accept之后产生的connection也是通过这个文件进行通信（那么如何确保通信的争取性呢？）。
+ - 无论`socket`和`file`都有`fileno()`或者`fd`这个属性，就是用来标识吧
