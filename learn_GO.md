@@ -9,10 +9,12 @@
 ├── bin
 ├── pkg
 └── src
+    ├── hello
+    │   └── hello.go # command source
     ├── main
-    │   └── main.go
+    │   └── main.go # command source
     └── test
-        └── say.go
+        └── say.go # package source
 ```
 - go install main
 
