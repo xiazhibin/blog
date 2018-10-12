@@ -1,6 +1,20 @@
 ### 不要使用共享数据来通信;使用通信来共享数据
 ### Go版本切换
 使用gvm进行管理[gvm](https://github.com/moovweb/gvm)
+- gvm pkgset create work1
+- gvm pkgset use work1 --local
+- gvm pkgenv work1 #添加工作目录到GOPATH
+- 建立工作目录
+```
+├── bin
+├── pkg
+└── src
+    ├── main
+    │   └── main.go
+    └── test
+        └── say.go
+```
+- go install main
 
 ### slices和数组区别
 - slices: []int{}
