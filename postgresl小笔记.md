@@ -1,5 +1,6 @@
 [like走不走索引](https://github.com/xiazhibin/blog/blob/master/postgresl%E5%B0%8F%E7%AC%94%E8%AE%B0.md#like%E8%B5%B0%E4%B8%8D%E8%B5%B0%E7%B4%A2%E5%BC%95-1)
-[select for update]()
+
+[select for update](https://github.com/xiazhibin/blog/blob/master/postgresl%E5%B0%8F%E7%AC%94%E8%AE%B0.md#select_for_update)
 -------------
 
 ## like走不走索引
