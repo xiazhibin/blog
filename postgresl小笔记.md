@@ -52,7 +52,8 @@ select * from public.table01 where table01.id=1 FOR SHARE OF table01;
  为了避免操作等待其它事务提交，使用NOWAIT选项。如果被选择的行不能立即被锁住， 那么语句将会立即汇报一个错误，而不是等待。请注意，NOWAIT只适用于行级别的锁， 要求的表级锁ROW SHARE仍然以通常的方法进行
  
 ### for update & for share 区别
- 这两个语句区别于为子记录的创建*依赖*父记录
+ 这两个语句区别在于当为子记录的创建**依赖**父记录
+ 
  sessionA:
  ```
  select * from public.user from id=1; 
@@ -64,7 +65,7 @@ select * from public.table01 where table01.id=1 FOR SHARE OF table01;
  DELETE FROM users WHERE id = 1;
  ```
 
-如果只使用`select`是不安全的，user可能已经被删除，但是user行是没有进行更新的，使用`for update`有点太浪费，
+如果只使用`select`是不安全的，user可能已经被删除，但是user行是没有`update`，使用`for update`有点太浪费，
 这个时候`for share`阻止了`delete`操作，直到sessionA结束,sessionB才开始执行。
 
 如果父语句并没有更新的行为，而依赖父语句而产生的子语句可以使用`for share`
