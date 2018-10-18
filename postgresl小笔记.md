@@ -1,5 +1,5 @@
 - [like走不走索引](#like%E8%B5%B0%E4%B8%8D%E8%B5%B0%E7%B4%A2%E5%BC%95)
-- [select for update](#select-for-update)
+- [select for update](#行级锁(SELECT .. FOR ..))
 
 -------------
 
@@ -34,5 +34,8 @@
 - 模糊匹配，不走索引`select * from user where name like '%pf%'`
 - 这种场景下，要使用索引，通过`pg_trgm`
 
-## select for update
-pass
+## 行级锁(SELECT .. FOR ..)
+```sql
+select * from public.table01 where floor.id=1 FOR UPDATE OF table01;
+```
+行锁
