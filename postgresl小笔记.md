@@ -1,6 +1,5 @@
-[like走不走索引](#like%E8%B5%B0%E4%B8%8D%E8%B5%B0%E7%B4%A2%E5%BC%95)
-
-[select for update](#select-for-update)
+- [like走不走索引](#like%E8%B5%B0%E4%B8%8D%E8%B5%B0%E7%B4%A2%E5%BC%95)
+- [select for update](#select-for-update)
 
 -------------
 
