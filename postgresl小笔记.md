@@ -1,3 +1,7 @@
+[like走不走索引]()
+[]()
+-------------
+
 ## like走不走索引
 
 ### 场景 lower(name) like 'pf%'
@@ -28,3 +32,6 @@
 
 - 模糊匹配，不走索引`select * from user where name like '%pf%'`
 - 这种场景下，要使用索引，通过`pg_trgm`
+
+## select for update
+pass
