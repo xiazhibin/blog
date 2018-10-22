@@ -2,6 +2,7 @@
 ### Go版本切换
 使用gvm进行管理[gvm](https://github.com/moovweb/gvm)
 - gvm pkgset create work1
+- gmv pkgenv work1 //修改GOPATH，将当前工作目录添加进去
 - gvm pkgset use work1 --local
 - gvm pkgenv work1 #添加工作目录到GOPATH
 - 建立工作目录
