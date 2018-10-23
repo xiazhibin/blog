@@ -4,7 +4,7 @@
 - gvm pkgset create work1
 - gmv pkgenv work1 //修改GOPATH，将当前工作目录添加进去
 - gvm pkgset use work1 --local
-- gvm pkgenv work1 #添加工作目录到GOPATH
+- gvm pkgenv work1 #将GOPATH改到工作目录
 - 建立工作目录
 ```
 ├── bin
@@ -17,6 +17,9 @@
     └── test
         └── say.go # package source
 ```
+- go get -u github.com/kardianos/govendor 安装govendor
+- 将当前工作目录bin添加到PATH里面去
+- 在src目录下,govender init
 - go install main
 
 ### slices和数组区别
