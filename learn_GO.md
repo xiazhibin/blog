@@ -20,6 +20,7 @@
 - go get -u github.com/kardianos/govendor 安装govendor
 - 将当前工作目录bin添加到PATH里面去
 - 在src目录下,govender init
+- govender fetch package
 - go install main
 
 ### slices和数组区别
