@@ -37,4 +37,5 @@ p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -
 s ：取代，通常这个s的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！
 
 ### 例子
-- `cat test.txt | sed 's/2/aa/' > new.txt` 将text.txt里面的第一个出现的2替换成aa，然后输出到new.txt
+- `cat test.txt | sed 's/2/aa/'` 将text.txt里面的第一个出现的2替换成aa，然后输出到new.txt
+- `cat text.txt | sed  '/2/d'` 删除含有2的行
